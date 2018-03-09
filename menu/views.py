@@ -1,7 +1,5 @@
 from django.http import HttpResponse
 
-from django.core import serializers
-
 import json
 
 class Menu:
@@ -30,6 +28,5 @@ class Pizza:
 def index(request):
     x = 'Hello world 2.0!'
     menu = Menu.create()
-    #data = serializers.serialize('json',menu.products[0])
     data = menu.toJSON()
     return HttpResponse(data, content_type='application/json')
